@@ -505,6 +505,24 @@ footer span + span { color: var(--teal); }
 @media (prefers-reduced-motion: reduce) {
   *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; }
 }
+
+/* ── TIME EXAMPLES ──────────────────────────────────────────────────────────── */
+.time-examples {
+  display: flex; flex-direction: column; gap: 10px; margin-top: 22px;
+}
+.tex-item {
+  display: flex; gap: 14px; align-items: center;
+  padding: 12px 16px; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: 8px;
+  transition: border-color .25s;
+}
+.tex-item:hover { border-color: var(--teal); }
+.tex-icon {
+  width: 40px; height: 40px; flex-shrink: 0; border-radius: 8px;
+  border: 1px solid; display: flex; align-items: center; justify-content: center;
+}
+.tex-title { font-size: 13.5px; font-weight: 600; margin-bottom: 2px; }
+.tex-desc  { font-size: 12px; color: var(--text-dim); }
 </style>
 </head>
 <body>
@@ -519,6 +537,7 @@ footer span + span { color: var(--teal); }
   <span class="nav-logo">Existencia</span>
   <ul class="nav-links">
     <li><a href="#bigbang">Big Bang</a></li>
+    <li><a href="#time">Tiempo</a></li>
     <li><a href="#entropy">Entropía</a></li>
     <li><a href="#stars">Estrellas</a></li>
     <li><a href="#life">Vida</a></li>
@@ -685,12 +704,160 @@ footer span + span { color: var(--teal); }
   </div>
 </section>
 
-<!-- ═══════ CAP 02: ENTROPÍA ═══════ -->
+<!-- ═══════ CAP 02: EL TIEMPO ═══════ -->
+<div class="sep"></div>
+<section class="chapter alt" id="time">
+  <div class="ch-inner">
+    <div class="ch-text">
+      <span class="ch-num reveal">02 · Física del tiempo</span>
+      <h2 class="ch-title reveal d1">¿Qué es el tiempo?</h2>
+      <div class="ch-body reveal d2">
+        <p>La física sabe medir el tiempo con una precisión extraordinaria. Pero no sabe exactamente qué es. Sabemos que un reloj funciona. Sabemos que el tiempo transcurre más despacio cerca de objetos muy masivos o a velocidades muy altas —la relatividad de Einstein lo predice y lo hemos medido—. Pero la pregunta más profunda sigue abierta: <strong>¿por qué sentimos que el tiempo avanza?</strong></p>
+        <p>Observa cualquier proceso cotidiano. Un café caliente se enfría. Un cubito de hielo se derrite. Una persona envejece. Todos tienen algo en común: ocurren en una sola dirección. Nunca vemos el café frío calentarse solo, ni los trozos de un vaso saltar del suelo y recomponerse. La física llama a esto <strong>la flecha del tiempo</strong>.</p>
+        <div class="box">
+          <strong>Lo extraño:</strong> las leyes fundamentales de la física son simétricas en el tiempo. Una ecuación que describe una colisión de partículas funciona igual hacia adelante que hacia atrás. Y sin embargo, el mundo macroscópico solo va en una dirección. ¿Por qué?
+        </div>
+        <p>La respuesta más aceptada es la entropía. Pero hay algo más profundo: para que hoy exista esa dirección temporal tan clara, el universo debió comenzar en un estado de entropía increíblemente baja. <strong>La flecha del tiempo no la impone ninguna ley: la impuso el estado inicial del universo.</strong> Y nadie sabe por qué empezó así.</p>
+      </div>
+
+      <!-- Ejemplos cotidianos -->
+      <div class="time-examples reveal d3">
+        <div class="tex-item">
+          <div class="tex-icon" style="background:rgba(255,72,32,.12);border-color:rgba(255,72,32,.3)">
+            <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" fill="none" stroke="#FF4820" stroke-width="1.5"/><path d="M10 5v5l3 3" stroke="#FF4820" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="tex-title">Café caliente</div>
+            <div class="tex-desc">Se enfría solo. Jamás se calienta espontáneamente.</div>
+          </div>
+        </div>
+        <div class="tex-item">
+          <div class="tex-icon" style="background:rgba(96,160,255,.12);border-color:rgba(96,160,255,.3)">
+            <svg width="20" height="20" viewBox="0 0 20 20"><rect x="5" y="3" width="10" height="14" rx="2" fill="none" stroke="#60A0FF" stroke-width="1.5"/><line x1="5" y1="10" x2="15" y2="10" stroke="#60A0FF" stroke-width="1" stroke-dasharray="2,1.5"/></svg>
+          </div>
+          <div>
+            <div class="tex-title">Cubito de hielo</div>
+            <div class="tex-desc">Se funde en agua. El agua no se congela sola.</div>
+          </div>
+        </div>
+        <div class="tex-item">
+          <div class="tex-icon" style="background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.3)">
+            <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="7" r="3.5" fill="none" stroke="#8B5CF6" stroke-width="1.5"/><path d="M5 18c0-3 2-5 5-5s5 2 5 5" fill="none" stroke="#8B5CF6" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div>
+            <div class="tex-title">Envejecimiento</div>
+            <div class="tex-desc">Las personas envejecen. Nunca rejuvenecen.</div>
+          </div>
+        </div>
+        <div class="tex-item">
+          <div class="tex-icon" style="background:rgba(232,160,32,.12);border-color:rgba(232,160,32,.3)">
+            <svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 16l4-4 3 3 5-8" fill="none" stroke="#E8A020" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div>
+            <div class="tex-title">Recuerdos</div>
+            <div class="tex-desc">Recuerdas el ayer. No puedes recordar el mañana.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ch-vis reveal d3">
+      <div class="svg-wrap">
+        <svg viewBox="0 0 400 440">
+          <defs>
+            <linearGradient id="gTime" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#0B1E3E"/>
+              <stop offset="50%" stop-color="#00C9C8"/>
+              <stop offset="100%" stop-color="#E8A020"/>
+            </linearGradient>
+            <linearGradient id="gTimeV" x1="0%" y1="100%" x2="0%" y2="0%">
+              <stop offset="0%" stop-color="#22D47A" stop-opacity=".6"/>
+              <stop offset="100%" stop-color="#22D47A" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Background card -->
+          <rect x="20" y="20" width="360" height="400" rx="14" fill="#111B2E" stroke="rgba(0,201,200,.18)" stroke-width="1"/>
+
+          <!-- Title -->
+          <text x="200" y="54" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="11" font-weight="700" fill="#344F68" letter-spacing="2">LA FLECHA DEL TIEMPO</text>
+
+          <!-- Main arrow shaft -->
+          <line x1="50" y1="120" x2="338" y2="120" stroke="url(#gTime)" stroke-width="3" stroke-linecap="round"/>
+          <!-- Arrowhead -->
+          <polygon points="350,120 332,112 332,128" fill="#E8A020"/>
+
+          <!-- Labels below arrow -->
+          <text x="58" y="140" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="600" fill="#00C9C8">PASADO</text>
+          <text x="338" y="140" text-anchor="end" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="600" fill="#E8A020">FUTURO</text>
+
+          <!-- Process icons along the arrow -->
+          <!-- Coffee -->
+          <circle cx="90" cy="120" r="18" fill="rgba(255,72,32,.15)" stroke="#FF4820" stroke-width="1.2"/>
+          <text x="90" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="16" fill="#FF4820">☕</text>
+          <text x="90" y="155" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6E88A2">caliente</text>
+
+          <!-- Arrow between -->
+          <text x="138" y="124" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="13" fill="#344F68">→</text>
+
+          <!-- Cold coffee -->
+          <circle cx="182" cy="120" r="18" fill="rgba(96,160,255,.15)" stroke="#60A0FF" stroke-width="1.2"/>
+          <text x="182" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="16" fill="#60A0FF">🥶</text>
+          <text x="182" y="155" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6E88A2">frío</text>
+
+          <!-- Forbidden direction label -->
+          <text x="200" y="176" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" fill="#FF4820" letter-spacing="1">NUNCA AL REVÉS</text>
+          <line x1="120" y1="168" x2="280" y2="168" stroke="#FF4820" stroke-width="0.8" stroke-dasharray="3,3" opacity=".5"/>
+
+          <!-- Divider -->
+          <line x1="40" y1="196" x2="360" y2="196" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+
+          <!-- Memory diagram -->
+          <text x="200" y="222" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10" font-weight="700" fill="#344F68" letter-spacing="1.5">POR QUÉ RECUERDAS EL PASADO</text>
+
+          <!-- Three boxes: past / present / future -->
+          <!-- Past -->
+          <rect x="38" y="238" width="96" height="72" rx="8" fill="rgba(0,201,200,.07)" stroke="rgba(0,201,200,.25)" stroke-width="1"/>
+          <text x="86" y="260" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" font-weight="700" fill="#00C9C8" letter-spacing=".5">PASADO</text>
+          <text x="86" y="278" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6E88A2">Huella</text>
+          <text x="86" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6E88A2">neuronal</text>
+          <text x="86" y="302" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10" fill="#22D47A">✓ recuerdas</text>
+
+          <!-- Present -->
+          <rect x="152" y="238" width="96" height="72" rx="8" fill="rgba(232,160,32,.07)" stroke="rgba(232,160,32,.25)" stroke-width="1"/>
+          <text x="200" y="260" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" font-weight="700" fill="#E8A020" letter-spacing=".5">PRESENTE</text>
+          <text x="200" y="278" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6E88A2">Huella</text>
+          <text x="200" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#6E88A2">formándose</text>
+          <text x="200" y="302" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10" fill="#E8A020">↻ viviendo</text>
+
+          <!-- Future -->
+          <rect x="266" y="238" width="96" height="72" rx="8" fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
+          <text x="314" y="260" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9" font-weight="700" fill="#344F68" letter-spacing=".5">FUTURO</text>
+          <text x="314" y="278" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#344F68">Sin</text>
+          <text x="314" y="290" text-anchor="middle" font-family="Inter,sans-serif" font-size="8.5" fill="#344F68">huella aún</text>
+          <text x="314" y="302" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="10" fill="#FF4820">✗ no puedes</text>
+
+          <!-- Divider 2 -->
+          <line x1="40" y1="328" x2="360" y2="328" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
+
+          <!-- Relativity note -->
+          <rect x="38" y="340" width="324" height="62" rx="8" fill="rgba(139,92,246,.06)" stroke="rgba(139,92,246,.2)" stroke-width="1"/>
+          <text x="200" y="360" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-size="9.5" font-weight="700" fill="#8B5CF6" letter-spacing=".5">RELATIVIDAD DEL TIEMPO</text>
+          <text x="56" y="376" font-family="Inter,sans-serif" font-size="10" fill="#6E88A2">El tiempo pasa más despacio cerca de</text>
+          <text x="56" y="390" font-family="Inter,sans-serif" font-size="10" fill="#6E88A2">objetos masivos o a alta velocidad.</text>
+          <text x="338" y="390" text-anchor="end" font-family="Space Grotesk,sans-serif" font-size="10" font-weight="600" fill="#8B5CF6">Einstein, 1905</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ CAP 03: ENTROPÍA ═══════ -->
 <div class="sep"></div>
 <section class="chapter alt" id="entropy">
   <div class="ch-inner flip">
     <div class="ch-text">
-      <span class="ch-num reveal">02 · Termodinámica</span>
+      <span class="ch-num reveal">03 · Termodinámica</span>
       <h2 class="ch-title reveal d1">La entropía: por qué el tiempo solo va hacia adelante</h2>
       <div class="ch-body reveal d2">
         <p>Las leyes fundamentales de la física son simétricas en el tiempo. Pero en el mundo cotidiano nunca vemos un café frío calentarse solo ni un vaso roto recomponerse. ¿Por qué?</p>
@@ -750,12 +917,12 @@ footer span + span { color: var(--teal); }
   </div>
 </section>
 
-<!-- ═══════ CAP 03: ESTRELLAS ═══════ -->
+<!-- ═══════ CAP 04: ESTRELLAS ═══════ -->
 <div class="sep"></div>
 <section class="chapter" id="stars">
   <div class="ch-inner">
     <div class="ch-text">
-      <span class="ch-num reveal">03 · Astrofísica</span>
+      <span class="ch-num reveal">04 · Astrofísica</span>
       <h2 class="ch-title reveal d1">Las estrellas: fábricas de los átomos que eres</h2>
       <div class="ch-body reveal d2">
         <p>Tras el Big Bang solo existían hidrógeno y helio. Tu cuerpo está hecho de carbono, oxígeno, hierro, calcio... ¿De dónde salieron?</p>
@@ -823,12 +990,12 @@ footer span + span { color: var(--teal); }
   </div>
 </section>
 
-<!-- ═══════ CAP 04: VIDA ═══════ -->
+<!-- ═══════ CAP 05: VIDA ═══════ -->
 <div class="sep"></div>
 <section class="chapter alt" id="life">
   <div class="ch-inner flip">
     <div class="ch-text">
-      <span class="ch-num reveal">04 · Bioquímica</span>
+      <span class="ch-num reveal">05 · Bioquímica</span>
       <h2 class="ch-title reveal d1">El origen de la vida</h2>
       <div class="ch-body reveal d2">
         <p>Hace 3.800 millones de años, en un planeta hostil sin oxígeno, con volcanes y meteoritos, ocurrió algo radicalmente nuevo: <strong>la química aprendió a copiarse a sí misma</strong>.</p>
@@ -895,12 +1062,12 @@ footer span + span { color: var(--teal); }
   </div>
 </section>
 
-<!-- ═══════ CAP 05: EVOLUCIÓN ═══════ -->
+<!-- ═══════ CAP 06: EVOLUCIÓN ═══════ -->
 <div class="sep"></div>
 <section class="chapter" id="evolution">
   <div class="ch-inner">
     <div class="ch-text">
-      <span class="ch-num reveal">05 · Biología evolutiva</span>
+      <span class="ch-num reveal">06 · Biología evolutiva</span>
       <h2 class="ch-title reveal d1">La evolución: un algoritmo ciego que genera complejidad</h2>
       <div class="ch-body reveal d2">
         <p>La evolución no tiene dirección ni intención. Solo hace tres cosas: copiar con errores, mantener lo que funciona, descartar lo que no. Con suficiente tiempo, eso basta para producir cualquier nivel de complejidad.</p>
@@ -985,12 +1152,12 @@ footer span + span { color: var(--teal); }
   </div>
 </section>
 
-<!-- ═══════ CAP 06: CONCIENCIA ═══════ -->
+<!-- ═══════ CAP 07: CONCIENCIA ═══════ -->
 <div class="sep"></div>
 <section class="chapter alt" id="consciousness">
   <div class="ch-inner wide">
     <div>
-      <span class="ch-num reveal" style="display:block;text-align:center">06 · Neurociencia</span>
+      <span class="ch-num reveal" style="display:block;text-align:center">07 · Neurociencia</span>
       <h2 class="ch-title reveal d1" style="text-align:center">El gran misterio:<br><span style="color:var(--purple)">la conciencia</span></h2>
       <p class="ch-body reveal d2" style="text-align:center;max-width:580px;margin:0 auto 24px">Podemos explicar cómo funciona una neurona, cómo se almacena un recuerdo, cómo el cerebro modela el mundo. Pero hay una pregunta que ninguna de esas explicaciones responde.</p>
 
