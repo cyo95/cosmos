@@ -104,37 +104,78 @@ nav {
   max-width: 520px; margin: 0 auto 52px; line-height: 1.7;
 }
 
-/* ── COSMIC COUNTER ─────────────────────────────────────────────────────────── */
-#counter {
-  position: relative;
+/* ── COSMIC COUNTERS ─────────────────────────────────────────────────────────── */
+#counters-wrap {
+  display: flex; gap: 0; align-items: stretch;
   background: var(--bg-mid); border: 1px solid var(--border-teal);
-  border-radius: 14px; padding: 26px 48px; margin-bottom: 52px;
-  overflow: hidden;
+  border-radius: 16px; margin-bottom: 52px; overflow: hidden;
+  position: relative;
 }
-#counter::before {
+#counters-wrap::before {
   content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(ellipse at 50% 100%, rgba(0,201,200,.07), transparent 65%);
-  pointer-events: none;
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 120%, rgba(0,201,200,.06), transparent 55%);
+}
+.counter-card {
+  flex: 1; padding: 24px 20px 20px; text-align: center;
+}
+.counter-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  margin: 0 auto 12px; opacity: .9;
+}
+.counters-divider {
+  width: 1px; background: var(--border-teal); margin: 20px 0; opacity: .5;
+  flex-shrink: 0;
 }
 .counter-label {
-  font-size: 10px; font-weight: 700; letter-spacing: .22em;
-  color: var(--teal); text-transform: uppercase; margin-bottom: 10px;
+  font-size: 9.5px; font-weight: 700; letter-spacing: .22em;
+  color: var(--teal); text-transform: uppercase; margin-bottom: 16px;
 }
-#seconds {
+/* Units row */
+.counter-units {
+  display: flex; gap: 4px; align-items: flex-end;
+  justify-content: center; flex-wrap: wrap;
+}
+.cu-block {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.cu-value {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(26px, 4vw, 46px); font-weight: 700;
+  font-size: clamp(16px, 2.4vw, 28px); font-weight: 700;
   color: #fff; letter-spacing: -.02em; font-variant-numeric: tabular-nums;
-  transition: color .15s;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 7px; padding: 5px 8px; min-width: 44px;
+  text-align: center;
 }
-#seconds.bump {
-  animation: sec-flip .3s cubic-bezier(.22,1,.36,1);
+.cu-value.pulse {
+  animation: cu-pop .32s cubic-bezier(.22,1,.36,1);
+  border-color: var(--teal) !important;
 }
-@keyframes sec-flip {
-  0%   { transform: translateY(-4px); opacity: .6; }
-  100% { transform: translateY(0);    opacity: 1;  }
+@keyframes cu-pop {
+  0%   { transform: translateY(-5px) scale(.96); opacity: .4; }
+  65%  { transform: translateY(1px)  scale(1.02); opacity: 1; }
+  100% { transform: translateY(0)    scale(1);    opacity: 1; }
 }
-.counter-sub { font-size: 11.5px; color: var(--text-muted); margin-top: 8px; }
+.cu-label {
+  font-size: 9px; font-weight: 600; letter-spacing: .1em;
+  color: var(--text-muted); text-transform: uppercase;
+}
+.cu-sep {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(14px, 2vw, 24px); font-weight: 300;
+  color: var(--text-muted); padding-bottom: 14px; line-height: 1; flex-shrink: 0;
+}
+/* Accent blocks */
+.cu-accent-red  .cu-value { background: rgba(255,72,32,.1);  border-color: rgba(255,72,32,.35);  color: #FF6A40; }
+.cu-accent-green .cu-value { background: rgba(34,212,122,.1); border-color: rgba(34,212,122,.35); color: var(--green); }
+.counter-sub {
+  font-size: 10.5px; color: var(--text-muted); margin-top: 14px; line-height: 1.5;
+}
+@media (max-width: 820px) {
+  #counters-wrap { flex-direction: column; }
+  .counters-divider { width: auto; height: 1px; margin: 0 20px; }
+  .cu-value { font-size: clamp(14px, 4vw, 22px); min-width: 36px; padding: 4px 6px; }
+}
 
 /* Scroll hint */
 .scroll-cue {
@@ -531,6 +572,83 @@ footer span + span { color: var(--teal); }
 }
 .tex-title { font-size: 13.5px; font-weight: 600; margin-bottom: 2px; }
 .tex-desc  { font-size: 12px; color: var(--text-dim); }
+/* ── INTRO SECTION ───────────────────────────────────────────────────────────── */
+#intro {
+  position: relative; z-index: 1;
+  background: linear-gradient(to bottom, var(--bg), var(--bg-mid));
+  padding: 80px 0 90px;
+  border-top: 1px solid var(--border);
+}
+.intro-inner {
+  max-width: 960px; margin: 0 auto; padding: 0 56px;
+  display: flex; flex-direction: column; gap: 52px;
+}
+.intro-title {
+  font-size: clamp(26px, 4vw, 48px); font-weight: 700;
+  letter-spacing: -.025em; line-height: 1.1;
+  margin: 14px 0 18px; color: #fff;
+}
+.intro-lead {
+  font-size: 16px; color: var(--text-dim); line-height: 1.8;
+  max-width: 680px;
+}
+
+/* Questions grid */
+.iq-label, .ic-label {
+  font-size: 10px; font-weight: 700; letter-spacing: .22em;
+  color: var(--teal); text-transform: uppercase; margin-bottom: 20px;
+}
+.iq-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+.iq-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+  transition: border-color .25s, transform .25s;
+}
+.iq-item:hover { border-color: rgba(0,201,200,.3); transform: translateY(-2px); }
+.iq-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.iq-text { font-size: 13.5px; color: var(--text-dim); line-height: 1.5; font-weight: 400; }
+
+/* Chapters list */
+.ic-list { display: flex; flex-direction: column; gap: 0; }
+.ic-item {
+  display: flex; align-items: baseline; gap: 14px;
+  padding: 13px 0; border-bottom: 1px solid var(--border);
+}
+.ic-item:last-child { border-bottom: none; }
+.ic-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px; font-weight: 700; min-width: 22px; flex-shrink: 0;
+}
+.ic-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px; font-weight: 600; min-width: 180px; flex-shrink: 0;
+}
+.ic-desc { font-size: 13px; color: var(--text-muted); }
+
+/* Warning box */
+.intro-warning {
+  display: flex; gap: 18px; align-items: flex-start;
+  background: rgba(232,160,32,.07); border: 1px solid rgba(232,160,32,.25);
+  border-radius: 12px; padding: 22px 24px;
+}
+.iw-icon {
+  font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700;
+  color: var(--gold); flex-shrink: 0; width: 32px; height: 32px;
+  border: 1.5px solid rgba(232,160,32,.4); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; margin-top: 1px;
+}
+.iw-text { font-size: 14px; color: var(--text-dim); line-height: 1.7; }
+.iw-text strong { color: var(--text); }
+
+@media (max-width: 820px) {
+  .intro-inner { padding: 0 24px; gap: 36px; }
+  .iq-grid { grid-template-columns: 1fr; }
+  .ic-item { flex-wrap: wrap; gap: 6px; }
+  .ic-name { min-width: unset; }
+}
 </style>
 </head>
 <body>
@@ -561,10 +679,51 @@ footer span + span { color: var(--teal); }
   <h1 class="hero-title">La lógica de<br>nuestra existencia</h1>
   <p class="hero-sub">Del primer instante del universo a la pregunta más difícil de la ciencia: por qué la materia puede preguntarse qué es.</p>
 
-  <div id="counter">
-    <div class="counter-label">Segundos desde el Big Bang</div>
-    <div id="seconds">—</div>
-    <div class="counter-sub">El universo lleva exactamente ese tiempo existiendo. Y sigue.</div>
+  <div id="counters-wrap">
+
+    <!-- Contador 1: Big Bang -->
+    <div class="counter-card" id="counter-bb">
+      <div class="counter-dot" style="background:#FF4820"></div>
+      <div class="counter-label">Desde el Big Bang</div>
+      <div class="counter-units">
+        <div class="cu-block"><div class="cu-value" id="bb-yr">—</div><div class="cu-label">Años</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block"><div class="cu-value" id="bb-mo">—</div><div class="cu-label">Meses</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block"><div class="cu-value" id="bb-dy">—</div><div class="cu-label">Días</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block"><div class="cu-value" id="bb-hr">—</div><div class="cu-label">Horas</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block"><div class="cu-value" id="bb-mn">—</div><div class="cu-label">Min</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block cu-accent-red"><div class="cu-value" id="bb-sc">—</div><div class="cu-label">Seg</div></div>
+      </div>
+      <div class="counter-sub">El universo existe desde hace exactamente este tiempo.</div>
+    </div>
+
+    <!-- Divisor -->
+    <div class="counters-divider"></div>
+
+    <!-- Contador 2: Primera vida -->
+    <div class="counter-card" id="counter-lf">
+      <div class="counter-dot" style="background:#22D47A"></div>
+      <div class="counter-label">Desde la primera vida</div>
+      <div class="counter-units">
+        <div class="cu-block"><div class="cu-value" id="lf-yr">—</div><div class="cu-label">Años</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block"><div class="cu-value" id="lf-mo">—</div><div class="cu-label">Meses</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block"><div class="cu-value" id="lf-dy">—</div><div class="cu-label">Días</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block"><div class="cu-value" id="lf-hr">—</div><div class="cu-label">Horas</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block"><div class="cu-value" id="lf-mn">—</div><div class="cu-label">Min</div></div>
+        <div class="cu-sep">:</div>
+        <div class="cu-block cu-accent-green"><div class="cu-value" id="lf-sc">—</div><div class="cu-label">Seg</div></div>
+      </div>
+      <div class="counter-sub">La vida lleva replicándose sin parar desde entonces.</div>
+    </div>
+
   </div>
 
   <div class="scroll-cue">
@@ -573,6 +732,79 @@ footer span + span { color: var(--teal); }
       <line x1="7" y1="2" x2="7" y2="18" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
       <polyline points="2,13 7,18 12,13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
+  </div>
+</section>
+
+<!-- ═══════ INTRO ═══════ -->
+<section id="intro">
+  <div class="intro-inner">
+
+    <div class="intro-hook reveal">
+      <span class="eyebrow">Antes de empezar</span>
+      <h2 class="intro-title">Puede que después de leer esto<br>veas el mundo de otra manera</h2>
+      <p class="intro-lead">No porque te vayamos a contar algo esotérico ni especulativo. Sino porque la ciencia, cuando se explica bien, es más impactante que cualquier ficción. Este es un recorrido por lo que sabemos con certeza sobre por qué estás aquí.</p>
+    </div>
+
+    <div class="intro-questions reveal d1">
+      <div class="iq-label">Las preguntas que este texto responde</div>
+      <div class="iq-grid">
+        <div class="iq-item">
+          <div class="iq-icon" style="color:#FF4820">✦</div>
+          <div class="iq-text">¿De dónde vienen los átomos de tu cuerpo?</div>
+        </div>
+        <div class="iq-item">
+          <div class="iq-icon" style="color:#FFD060">✦</div>
+          <div class="iq-text">¿Por qué el tiempo solo avanza hacia adelante y no hacia atrás?</div>
+        </div>
+        <div class="iq-item">
+          <div class="iq-icon" style="color:#22D47A">✦</div>
+          <div class="iq-text">¿Cómo surgió la vida de la química inerte?</div>
+        </div>
+        <div class="iq-item">
+          <div class="iq-icon" style="color:#00C9C8">✦</div>
+          <div class="iq-text">¿Por qué eres un proceso y no una cosa?</div>
+        </div>
+        <div class="iq-item">
+          <div class="iq-icon" style="color:#A060FF">✦</div>
+          <div class="iq-text">¿Cómo un algoritmo ciego produjo seres capaces de pensar?</div>
+        </div>
+        <div class="iq-item">
+          <div class="iq-icon" style="color:#8B5CF6">✦</div>
+          <div class="iq-text">¿Por qué se siente algo desde dentro cuando el cerebro trabaja?</div>
+        </div>
+        <div class="iq-item">
+          <div class="iq-icon" style="color:#E8A020">✦</div>
+          <div class="iq-text">¿Para qué sirvió la religión? ¿Por qué funciona menos ahora?</div>
+        </div>
+        <div class="iq-item">
+          <div class="iq-icon" style="color:#60A0FF">✦</div>
+          <div class="iq-text">¿Qué significa todo esto sobre lo que somos?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="intro-chapters reveal d2">
+      <div class="ic-label">Lo que vas a recorrer</div>
+      <div class="ic-list">
+        <div class="ic-item"><span class="ic-num" style="color:#FF4820">01</span><span class="ic-name">El Big Bang</span><span class="ic-desc">De la nada a la materia en tres minutos</span></div>
+        <div class="ic-item"><span class="ic-num" style="color:#60A0FF">02</span><span class="ic-name">El tiempo</span><span class="ic-desc">Por qué no puedes recordar el mañana</span></div>
+        <div class="ic-item"><span class="ic-num" style="color:#00C9C8">03</span><span class="ic-name">La entropía</span><span class="ic-desc">La única ley que distingue pasado y futuro</span></div>
+        <div class="ic-item"><span class="ic-num" style="color:#FFD060">04</span><span class="ic-name">Las estrellas</span><span class="ic-desc">Las fábricas de los átomos que te componen</span></div>
+        <div class="ic-item"><span class="ic-num" style="color:#22D47A">05</span><span class="ic-name">El origen de la vida</span><span class="ic-desc">Cuando la química aprendió a copiarse a sí misma</span></div>
+        <div class="ic-item"><span class="ic-num" style="color:#A060FF">06</span><span class="ic-name">La evolución</span><span class="ic-desc">3.800 millones de años de prueba y error</span></div>
+        <div class="ic-item"><span class="ic-num" style="color:#8B5CF6">07</span><span class="ic-name">La conciencia</span><span class="ic-desc">El misterio más difícil de la ciencia</span></div>
+        <div class="ic-item"><span class="ic-num" style="color:#E8A020">+</span><span class="ic-name">La religión</span><span class="ic-desc">Una tecnología social, explicada desde la ciencia</span></div>
+      </div>
+    </div>
+
+    <div class="intro-warning reveal d3">
+      <div class="iw-icon">!</div>
+      <div class="iw-text">
+        <strong>Todo lo que leerás está respaldado por ciencia publicada y revisada por pares.</strong>
+        Hay cosas que aún no sabemos —y lo diremos con claridad—. Pero lo que sí sabemos es suficiente para cambiar la forma en que te ves a ti mismo y al universo que te rodea.
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1354,14 +1586,14 @@ footer span + span { color: var(--teal); }
 <script>
 // ── STARFIELD ──
 const cv = document.getElementById('starfield');
-const cx = cv.getContext('2d');
+const ctx = cv.getContext('2d');
 let stars=[], W,H;
 function resize(){ W=cv.width=innerWidth; H=cv.height=innerHeight; }
 resize(); addEventListener('resize', resize);
 for(let i=0;i<200;i++) stars.push({x:Math.random(),y:Math.random(),r:Math.random()*1.3+.2,a:Math.random(),t:Math.random()*Math.PI*2,s:Math.random()*.0005+.0001});
 (function loop(){
-  cx.clearRect(0,0,W,H);
-  stars.forEach(s=>{ s.t+=s.s*60; const a=s.a*(.45+.55*Math.sin(s.t)); cx.beginPath(); cx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2); cx.fillStyle=`rgba(255,255,255,${a})`; cx.fill(); });
+  ctx.clearRect(0,0,W,H);
+  stars.forEach(s=>{ s.t+=s.s*60; const a=s.a*(.45+.55*Math.sin(s.t)); ctx.beginPath(); ctx.arc(s.x*W,s.y*H,s.r,0,Math.PI*2); ctx.fillStyle=`rgba(255,255,255,${a})`; ctx.fill(); });
   requestAnimationFrame(loop);
 })();
 
@@ -1369,33 +1601,64 @@ for(let i=0;i<200;i++) stars.push({x:Math.random(),y:Math.random(),r:Math.random
 const prog = document.getElementById('prog');
 addEventListener('scroll', ()=>{ prog.style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100)+'%'; });
 
-// ── COSMIC COUNTER — segundo a segundo ──
-// Edad del universo: 13.787e9 años × 365.25 × 24 × 3600 s/año
-const BASE = Math.round(13.787e9 * 365.25 * 24 * 3600);
-const secEl = document.getElementById('seconds');
+// ── DUAL COSMIC COUNTER ──────────────────────────────────────────────────────
+// Edad del universo:   13.787.000.000 años
+// Primera vida Tierra: 3.800.000.000 años
+// Estrategia: calculamos los años completos como constante y sumamos
+// el tiempo transcurrido en el año en curso (meses, días, h, min, seg)
+// usando la fecha real del navegador — así los segundos son 100% reales.
 
-function fmt(n){
-  // Formato español con puntos de miles
-  return Math.floor(n).toLocaleString('es-ES');
-}
+const BB_YEARS   = 13787000000;  // años completos universo
+const LIFE_YEARS =  3800000000;  // años completos primera vida
 
-let prev = -1;
-function tick(){
-  const now = Math.floor(BASE + Date.now() / 1000);
-  if(now !== prev){
-    prev = now;
-    const str = fmt(now);
-    // Animación de "flip" en el último dígito que cambia
-    secEl.classList.remove('bump');
-    void secEl.offsetWidth; // reflow para reiniciar animación
-    secEl.classList.add('bump');
-    secEl.textContent = str;
+function pad2(n){ return String(Math.floor(n)).padStart(2,'0'); }
+
+function setCell(id, val, doAnim){
+  const el = document.getElementById(id);
+  if(!el) return;
+  const strVal = String(val);
+  if(el.textContent === strVal) return;
+  el.textContent = strVal;
+  if(doAnim){
+    el.classList.remove('pulse');
+    void el.offsetWidth;   // force reflow
+    el.classList.add('pulse');
   }
-  // Sincronizar exactamente con el cambio de segundo
-  const ms = 1000 - (Date.now() % 1000);
-  setTimeout(tick, ms);
 }
-tick();
+
+function updateCounters(){
+  const now = new Date();
+  const mo  = pad2(now.getMonth() + 1);
+  const dy  = pad2(now.getDate());
+  const hr  = pad2(now.getHours());
+  const mn  = pad2(now.getMinutes());
+  const sc  = pad2(now.getSeconds());
+  const animSec = true;
+  const animMin = (now.getSeconds() === 0);
+
+  // ── Big Bang counter ──
+  const bbYr = (BB_YEARS + now.getFullYear()).toLocaleString('es-ES');
+  setCell('bb-yr', bbYr,  false);
+  setCell('bb-mo', mo,    false);
+  setCell('bb-dy', dy,    false);
+  setCell('bb-hr', hr,    false);
+  setCell('bb-mn', mn,    animMin);
+  setCell('bb-sc', sc,    animSec);
+
+  // ── Life counter ──
+  const lfYr = (LIFE_YEARS + now.getFullYear()).toLocaleString('es-ES');
+  setCell('lf-yr', lfYr,  false);
+  setCell('lf-mo', mo,    false);
+  setCell('lf-dy', dy,    false);
+  setCell('lf-hr', hr,    false);
+  setCell('lf-mn', mn,    animMin);
+  setCell('lf-sc', sc,    animSec);
+
+  // Sincronizar exactamente con el siguiente segundo del reloj real
+  const msToNext = 1000 - (Date.now() % 1000);
+  setTimeout(updateCounters, msToNext);
+}
+updateCounters();
 
 // ── REVEAL ON SCROLL ──
 const ro = new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } }); },{threshold:.10});
